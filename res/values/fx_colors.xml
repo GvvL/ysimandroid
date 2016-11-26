@@ -6,5 +6,5 @@
     <color name="cs_main_color">#b7864d</color>
     <color name="ys_bg_color">#f1eef0</color>
     <color name="ys_line_color">#e3e3e3</color>
-    <color name="ys_font_normal">#888</color>
+    <color name="ys_font_normal">#8a8a8a</color>
 </resources>

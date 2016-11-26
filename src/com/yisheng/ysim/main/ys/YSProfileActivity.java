@@ -72,4 +72,7 @@ public class YSProfileActivity extends BaseActivity implements View.OnClickListe
             default:
         }
     }
+    public void orderClick(View v){
+        startActivity(new Intent(this,YSOrderActivity.class));
+    }
 }

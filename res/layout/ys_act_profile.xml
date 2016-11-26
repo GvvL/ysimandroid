@@ -89,7 +89,9 @@
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:padding="3dp"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:background="@drawable/ys_btn_text_select"
+                            android:clickable="true">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -101,8 +103,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center"
                                 android:text="账户余额"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                />
                         </LinearLayout>
                         <View
                             android:layout_width="1dp"
@@ -114,18 +118,23 @@
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:padding="3dp"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:background="@drawable/ys_btn_text_select"
+                            android:clickable="true">
                             <com.beardedhen.androidbootstrap.BootstrapButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:bootstrapBrand="warning"
-                                app:bootstrapSize="sm"
+                                app:bootstrapSize="xs"
                                 app:bootstrapText="vip4"
-                                app:roundedCorners="true"/>
+                                app:roundedCorners="true"
+                                android:textSize="40dp"
+                                />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="账户等级"
+                                android:layout_gravity="bottom|center"
                                 android:textSize="16sp" />
                         </LinearLayout>
                         <View
@@ -138,7 +147,9 @@
                             android:layout_weight="1"
                             android:padding="3dp"
                             android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:background="@drawable/ys_btn_text_select"
+                            android:clickable="true">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -151,6 +162,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="账户积分"
+                                android:layout_gravity="bottom|center"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -171,11 +183,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/ys_line_color"/>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="我的订单"
-                        android:padding="12dp"/>
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/icon_order"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="   我的订单"
+                            android:textSize="@dimen/bootstrap_h5_text_size"
+                            android:textColor="@color/ys_font_normal"/>
+
+                    </LinearLayout>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -184,31 +212,44 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:padding="4dp">
                         <Button
+                            android:id="@+id/order_pay"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="已付款"
-                            android:background="@null"
+                            android:text="已支付"
+                            android:background="@drawable/ys_btn_text_select"
+                            android:clickable="true"
                             android:textColor="@color/ys_font_normal"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:drawableTop="@drawable/icon_act_profile_order_done"
+                            android:onClick="orderClick"/>
                         <Button
+                            android:id="@+id/order_nopay"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="未付款"
                             android:textColor="@color/ys_font_normal"
-                            android:background="@null"
-                            android:textSize="16sp" />
+                            android:background="@drawable/ys_btn_text_select"
+                            android:clickable="true"
+                            android:textSize="16sp"
+                            android:drawableTop="@drawable/icon_act_profile_order_none"
+                            android:onClick="orderClick"/>
                         <Button
+                            android:id="@+id/order_done"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="已完成"
                             android:textColor="@color/ys_font_normal"
-                            android:background="@null"
-                            android:textSize="16sp" />
+                            android:background="@drawable/ys_btn_text_select"
+                            android:clickable="true"
+                            android:textSize="16sp"
+                            android:drawableTop="@drawable/icon_act_profile_order_all"
+                            android:onClick="orderClick"/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
@@ -226,15 +267,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/ys_line_color"/>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:text="    地址管理"
-                        android:paddingLeft="20dp"
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
-                        android:drawableLeft="@drawable/icon_profile"
+                        android:text="    地址管理"
+                        android:paddingLeft="20dp"
+                        android:drawableLeft="@drawable/icon_address"
+                        android:background="@drawable/ys_btn_text_select"
+                        android:clickable="true"
                         android:id="@+id/btn_addr" />
                     <View
                         android:layout_width="match_parent"
@@ -248,8 +292,10 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
-                        android:drawableLeft="@drawable/icon_profile"
-                        android:id="@+id/btn_youhui" />
+                        android:drawableLeft="@drawable/icon_coupon"
+                        android:id="@+id/btn_youhui"
+                        android:background="@drawable/ys_btn_text_select"
+                        android:clickable="true"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -262,8 +308,10 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
-                        android:drawableLeft="@drawable/icon_profile"
-                        android:id="@+id/btn_sec" />
+                        android:drawableLeft="@drawable/icon_secret"
+                        android:id="@+id/btn_sec"
+                        android:background="@drawable/ys_btn_text_select"
+                        android:clickable="true"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -276,8 +324,10 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
-                        android:drawableLeft="@drawable/icon_profile"
-                        android:id="@+id/btn_message" />
+                        android:drawableLeft="@drawable/icon_msg"
+                        android:id="@+id/btn_message"
+                        android:background="@drawable/ys_btn_text_select"
+                        android:clickable="true"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -291,8 +341,10 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
-                        android:drawableLeft="@drawable/icon_profile"
-                        android:id="@+id/btn_yaoqing" />
+                        android:drawableLeft="@drawable/icon_yaoqing"
+                        android:id="@+id/btn_yaoqing"
+                        android:background="@drawable/ys_btn_text_select"
+                        android:clickable="true"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"

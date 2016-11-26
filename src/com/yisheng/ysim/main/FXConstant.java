@@ -6,6 +6,7 @@ import android.os.Environment;
  * Created by ustc on 2016/6/27.
  */
 public class FXConstant {
+    public static final String ENDPOIND="http://139.129.213.6/ysim/public/index.php/";
     public static final String YSHOST="http://139.129.213.6/ysim/public/index.php/index/";
     public static final String URL_REGISTER = YSHOST + "register";
     public static final String URL_LOGIN = YSHOST + "login";
@@ -35,11 +36,16 @@ public class FXConstant {
     public static final String URL_CS_SEND_MSG = YSHOST + "csSendMsg";
 
 
+
     //短信
     public static final String URL_LOGIN_SEND_CODE=YSHOST+"sendMsgCode";
     //登陆
     public static final String URL_LOGIN_SEND=YSHOST+"verifyLogin";
 
+    //订单
+    public static final String URL_GET_ORDER=ENDPOIND+"order/all";
+    //地址
+    public static final String URL_GET_ADDRESS=ENDPOIND+"address/all";
     //服务器端
 //    public static final String HOST = "http://120.24.211.126/fanxin3/";
 //    public static final String URL_REGISTER = HOST + "register.php";

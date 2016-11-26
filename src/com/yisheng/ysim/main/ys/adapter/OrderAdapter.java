@@ -2,14 +2,16 @@ package com.yisheng.ysim.main.ys.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.yisheng.ysim.R;
-import com.yisheng.ysim.main.moments.SocialFriendAdapter;
 import com.yisheng.ysim.main.ys.YSOrderDetailActivity;
 
 /**
@@ -21,10 +23,11 @@ public class OrderAdapter extends BaseAdapter {
     public OrderAdapter(Context context){
         mContext=context;
     }
-
+    private JSONArray array=new JSONArray();
+    private int flag=0;//0:all,1:已支付,2:待支付,3:已完成
     @Override
     public int getCount() {
-        return 8;
+      return array.size();
     }
 
     @Override
@@ -62,11 +65,21 @@ public class OrderAdapter extends BaseAdapter {
         }else{
             vh= (ViewHolder) convertView.getTag();
         }
+//        JSONObject obj= (JSONObject)this.array.get(position);
+//        vh.time.setText(obj.getString("id"));
 
 
 
         return convertView;
     }
+
+    public void setData(JSONArray array) {
+        this.array=array;
+        this.notifyDataSetChanged();
+    }
+
+
+
 
     class ViewHolder{
         TextView time,num,type,price,is_pay,detail;
